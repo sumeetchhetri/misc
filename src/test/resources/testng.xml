@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="SampleAppSuite" parallel="false" verbose="2" >
+	<parameter name="baseUrl" value="http://localhost:8080/sampleApp"/>
+	<parameter name="testCaseDir" value="data"/>
+	<parameter name="outFilesDir" value="out"/>
+	<parameter name="reportingEnabled" value="true"/>
+	
+	<parameter name="authEnabled" value="true"/>
+	<parameter name="authUrl" value="api/rest/auth/loginh"/>
+	<parameter name="authExtractAuth" value="token,json,token,queryparam"/>
+	
+	<!-- 
+	<parameter name="wsdlLocFile" value="wsdl-locations.csv"/>
+	<parameter name="soapAuthEnabled" value="true"/>
+	<parameter name="soapAuthWsdlKey" value="AuthService"/>
+	<parameter name="soapAuthOperation" value="loginHeaderParams"/>
+	<parameter name="soapAuthExtractAuth" value="token,token,queryparam"/>
+ 	-->	
+ 		
+ 	<test name="API Tests">
+ 		<classes>
+	     <class name="com.gatf.test.ApiAcceptanceTest"/>
+	     </classes>
+ 	</test>
+</suite>

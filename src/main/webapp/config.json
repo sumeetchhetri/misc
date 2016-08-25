@@ -1,0 +1,66 @@
+{
+	"dependencies": {
+		"override": false,
+		"list": []
+	},
+	"intlmap": {"en":{"Key":"Key"}},
+	"settings": {
+		"debugEnabled": false,
+		"crudcreatename": null,
+		"crudreadname": null,
+		"crudupdatename": null,
+		"cruddeletename": null,
+		"crudreadallname": null,
+		"dateformat": null,
+		"datetimeformat": null,	
+		"timeformat": null,
+		"timestampformat": null,
+		"honourLocale": true,
+		"freezeLoaderId": null,
+		"freezeLoaderHtml": null,
+		"compressedSchemas": "",
+		"compressedTemplatizedSchemas": "",
+		"initialLodaerScreen": false,
+		"numApiWebWorkers": 0,
+		"schemaIntlEnabled": true,
+		"defaultLanguage": "en-IN"
+	},
+	"globals": {
+		"key": "value"
+	},
+	"modules": [
+		"js/test-module.js"
+	],
+	"schemas": [
+		["schemas/test-schema.json"]
+	],
+	"templates": [
+		"templates/test.html",
+		["templates/test-row.html", {"rows": null, "row": null, "i": null}]
+	],
+	"router": {
+		"defaultroute": "",
+		"aliases": {
+			"abc": ["bcd", "def"]
+		},
+		"secure": true,
+		"routes": {
+			"logit": {
+				"load": {
+					"selector": "#view_cont",
+					"template": "templates/login.html"
+				},
+				"func": "loginView"
+			},
+			"logout": {
+				"func": "logout"
+			},
+			"test/:a/:b/:c/:d/:e": {
+				"func": "testFunc"
+			}
+		}
+	},
+	"compressedSchemas": null,
+	"compressedSchemaHtmlTemplates": null,
+	"compressedScript": false
+}

@@ -1,0 +1,12 @@
+open firefox
+goto http://abc
+subtest "a b c" 
+{
+	??4 id@"username1" type "sumeetc"
+	clear xpath@"//*[@id="username"]"
+}
+subtest "1 2 3" 
+{
+	??4 id@"username" type "sumeetc"
+	clear xpath@"//*[@id="username"]"
+}

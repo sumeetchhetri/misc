@@ -1,0 +1,12 @@
+open chrome
+goto http://abc
+subtest "a b c" 
+{
+	??30 id@"username" type "sumeetc"
+	clear xpath@"//*[@id="username"]"
+}
+subtest "1 2 3" 
+{
+	??30 id@"username" type "sumeetc"
+	clear xpath@"//*[@id="username"]"
+}

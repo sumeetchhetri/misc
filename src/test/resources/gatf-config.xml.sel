@@ -1,0 +1,43 @@
+<gatf-execute-config>
+	<testCaseDir>data</testCaseDir>
+	<outFilesDir>out</outFilesDir>
+	<isSeleniumExecutor>true</isSeleniumExecutor>
+	<javaHome>C:\\Program Files\\Java\\jdk1.7.0_07</javaHome>
+	<seleniumDriverConfigs>
+		<seleniumDriverConfig>
+			<name>chrome</name>
+			<version></version>
+			<platform></platform>
+			<driverName>webdriver.chrome.driver</driverName>
+			<path>F:\\Laptop_Backup\\Development\\selenium-drivers\\chromedriver.exe</path>
+		</seleniumDriverConfig>
+		<!--seleniumDriverConfig>
+			<name>firefox</name>
+			<version>47.0</version>
+			<platform></platform>
+			<driverName>webdriver.gecko.driver</driverName>
+			<path>F:\\Laptop_Backup\\Development\\selenium-drivers\\geckodriver.exe</path>
+		</seleniumDriverConfig-->
+		<!--seleniumDriverConfig>
+			<name>appium-android</name>
+			<version>5.1.1</version>
+			<platform>Android</platform>
+			<capabilities>
+				<deviceName></deviceName>
+				<appPackage>com.test.activity</appPackage>
+				<appActivity>.test</appActivity>
+				<app>test.apk</app>
+			</capabilities>
+			<path>test.apk</path>
+		</seleniumDriverConfig-->
+	</seleniumDriverConfigs>
+	<seleniumLoggerPreferences>browser(OFF),client(OFF),driver(OFF),performance(OFF),profiler(OFF),server(OFF)</seleniumLoggerPreferences>
+	<seleniumScripts>
+		<seleniumScript>test.sel</seleniumScript>
+		<!--seleniumScript>data\\test.sel</seleniumScript-->
+	</seleniumScripts>
+	<!--distributedLoadTests>true</distributedLoadTests>
+	<distributedNodes>
+		<distributedNode>localhost</distributedNode>
+	</distributedNodes-->
+</gatf-execute-config>

@@ -1,0 +1,2 @@
+AuthService,http://localhost:8081/sampleApp/api/soap/auth?wsdl
+ExampleService,http://localhost:8081/sampleApp/api/soap/example?wsdl

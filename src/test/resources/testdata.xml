@@ -1,0 +1,144 @@
+<gatf-execute-config>
+	<!-- Whether auto authentication support is enabled -->
+	<authEnabled>true</authEnabled>
+ 
+	<!-- Authentication token parameters - name(token), where to find it(json), 
+		name(token) and usage of token in subsequent secure calls(query parameter) -->
+	<authExtractAuth>token,json,token,queryparam</authExtractAuth>
+ 
+	<!-- The authentication URL -->
+	<authUrl>api/rest/auth/loginh</authUrl>
+ 
+	<!-- The username and password parameters and their point of presence in the request -->
+	<authParamsDetails>username,header,password,header</authParamsDetails>
+ 
+	<!-- The environment base URL, all requests(authentication and other testcases) 
+		having relative URL's will be using this URL as their base -->
+	<baseUrl>http://localhost:8080/sampleApp</baseUrl>
+ 
+	<!-- Whether the plugin is enabled -->
+	<enabled>true</enabled>
+ 
+	<!-- Where should the testcase execution reports be generated -->
+	<outFilesDir>out</outFilesDir>
+ 
+	<!-- Where to find all the testcases(xml,json,csv files) -->
+	<testCaseDir>data</testCaseDir>
+ 
+	<!-- The HTTP request timeout -->
+	<httpRequestTimeout>100000</httpRequestTimeout>
+ 
+	<!-- The plugin enables the use of pre/post testcase execution hooks, 
+		with the help of the @PreTestCaseExecutionHook and @PostTestCaseExecutionHook annotations, 
+		Custom logic can be written using these annotations for pre/post testcase execution control, 
+		this parameter defines the pacakage to scan to find the custom defined java classes defining 
+		the hooks using the annotation -->
+	<testCaseHooksPaths>
+		<testCaseHooksPath>com.*</testCaseHooksPath>
+	</testCaseHooksPaths>
+ 
+	<!-- The number of concurrent users to simulate -->
+	<concurrentUserSimulationNum>1</concurrentUserSimulationNum>
+ 
+	<!-- The ramp-up time for concurrent user load testing -->
+	<concurrentUserRampUpTime>5000</concurrentUserRampUpTime>
+ 
+	<!-- The provider name that will be used to fetch user/password details for user simulation -->
+	<simulationUsersProviderName>file-auth-provider</simulationUsersProviderName>
+ 
+	<!-- Whether comparative analysis is enabled, if yes then the compareEnvBaseUrls property inside
+		  gatfTestDataConfig element needs to define the multiple environments where a comparison
+		  of test case executions is desired -->
+	<compareEnabled>false</compareEnabled>
+ 
+	<!-- Whether load testing is enabled -->
+	<loadTestingEnabled>false</loadTestingEnabled>
+ 
+	<!-- Load testing execution time -->
+	<loadTestingTime>40000</loadTestingTime>
+ 
+	<!-- The number of report samples to be generated during the load testing window -->
+	<loadTestingReportSamples>6</loadTestingReportSamples>
+ 
+	<!-- Whether debug logs are enabled or not -->
+	<debugEnabled>true</debugEnabled>
+ 
+	<!-- The WSDL Location file with the wsdl endpoints -->
+	<wsdlLocFile>wsdl-locations.csv</wsdlLocFile>
+ 
+	<!-- The test data configuration parameters including the global parameters, compare 
+		environment URL's and the list of all the test data providers you may define-->
+	<gatfTestDataConfig>
+		
+		<!-- The list of compare environment URL's -->
+		<compareEnvBaseUrls>
+			<string>http://localhost:8081/sampleApp</string>
+		</compareEnvBaseUrls>
+ 
+		<!-- The global parameter list -->
+		<globalVariables>
+			<gvar1>gvalue</gvar1>
+		</globalVariables>
+ 
+		<!-- The list of test data providers -->	
+		<providerTestDataList>
+			<gatf-testdata-provider>
+				<providerName>mongodb-auth-provider</providerName>
+				<providerClass>com.gatf.executor.dataprovider.MongoDBTestDataProvider
+				</providerClass>
+				<args>
+					<arg>localhost</arg>
+					<arg>27017</arg>
+					<arg>globaldb</arg>
+					<arg>User</arg>
+					<arg>{"status": "ACTIVE"}</arg>
+					<arg>userName,password</arg>
+					<arg>username,password</arg>
+				</args>
+			</gatf-testdata-provider>
+			<gatf-testdata-provider>
+				<providerName>database-auth-provider</providerName>
+				<providerClass>com.gatf.executor.dataprovider.DatabaseTestCaseDataProvider
+				</providerClass>
+				<args>
+					<arg>jdbc:mysql://localhost/globaldb</arg>
+					<arg>com.mysql.jdbc.Driver</arg>
+					<arg>root</arg>
+					<arg></arg>
+					<arg>SELECT USER_NAME,PASSWORD FROM BASE_USER</arg>
+					<arg>username,password</arg>
+				</args>
+			</gatf-testdata-provider>
+			<gatf-testdata-provider>
+				<enabled>true</enabled>
+				<providerName>file-auth-provider</providerName>
+				<providerClass>com.gatf.executor.dataprovider.FileTestCaseDataProvider
+				</providerClass>
+				<args>
+					<arg>authfile.csv</arg>
+					<arg>csv</arg>
+					<arg>username,password</arg>
+				</args>
+			</gatf-testdata-provider>
+			<gatf-testdata-provider>
+				<enabled>true</enabled>
+				<providerName>inline-auth-provider</providerName>
+				<providerClass>com.gatf.executor.dataprovider.InlineValueTestCaseDataProvider
+				</providerClass>
+				<args>
+					<arg>username,password</arg>
+					<arg>user1,password</arg>
+					<arg>user2,password</arg>
+				</args>
+			</gatf-testdata-provider>
+			<gatf-testdata-provider>
+				<enabled>true</enabled>
+				<providerName>custom-auth-provider</providerName>
+				<providerClass>com.CustomTestDataProvider</providerClass>
+				<args>
+					<arg>username,password</arg>
+				</args>
+			</gatf-testdata-provider>
+		</providerTestDataList>
+	</gatfTestDataConfig>
+</gatf-execute-config>

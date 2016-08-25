@@ -1,0 +1,312 @@
+<TestCases>
+  <TestCase method="POST" expectedResCode="200" expectedResContentType="application/xml" skipTest="false" detailedLog="false" secure="false" soapBase="false">
+    <url>api/rest/auth/loginh</url>
+	<name>com.sample.services.AuthenticationServiceImpl.loginHeaderParams</name>
+	<description>com.sample.services.AuthenticationServiceImpl.loginHeaderParams</description>
+    <content><![CDATA[]]></content>
+    <headers>
+      <entry>
+        <string>username</string>
+        <string>user1</string>
+      </entry>
+      <entry>
+        <string>Content-Type</string>
+        <string>text/plain</string>
+      </entry>
+      <entry>
+        <string>password</string>
+        <string>password</string>
+      </entry>
+    </headers>
+    <soapParameterValues/>
+    <workflowContextParameterMap>
+    	<entry>
+    		<string>role</string>
+    		<string>role</string>
+    	</entry>
+    </workflowContextParameterMap>
+    
+  </TestCase>
+  <TestCase method="GET" expectedResCode="200" expectedResContentType="application/json" skipTest="false" detailedLog="true" secure="true" soapBase="false">
+    <url>api/rest/example/?token={token}&amp;</url>
+	<name>getBeansJSON</name>
+	<description>getBeansJSON</description>
+    <content><![CDATA[]]></content>
+    <headers/>
+    <expectedNodes>
+    	<string>[0].id</string>
+    </expectedNodes>
+    <workflowContextParameterMap>
+    	<entry>
+    		<string>AllJSONBeans</string>
+    		<string>#responseMappedValue[ id]</string>
+    	</entry>
+    	<entry>
+    		<string>AllJSONBeansall</string>
+    		<string>#responseMappedValue[ *]</string>
+    	</entry>
+    </workflowContextParameterMap>
+    <soapParameterValues/>
+    
+  </TestCase>
+  <TestCase method="GET" expectedResCode="400" expectedResContentType="application/json" skipTest="false" detailedLog="true" secure="true" soapBase="false">
+    <url>api/rest/example/error</url>
+	<name>getBeansErrorJSON</name>
+	<description>getBeansErrorJSON</description>
+    <content><![CDATA[]]></content>
+    <headers/>
+    <expectedNodes>
+    	<string>[0].id</string>
+    </expectedNodes>
+    <soapParameterValues/>
+  </TestCase>
+  <!-- TestCase url="api/rest/example?token={token}&amp;" name="com.sample.services.ExampleBeanServiceImpl.addBean" method="POST" expectedResCode="200" expectedResContentType="application/json" skipTest="false" detailedLog="false" secure="true" soapBase="false" outFileName="addbean_response.json">
+    <description>com.sample.services.ExampleBeanServiceImpl.addBean</description>
+    <content><![CDATA[{"id":"DfCobuXzhe","name":"TDymsEDzCE","order":53,"valid":false,"bean":{"prop1":"WmGSHlwUYz","prop2":69,"prop3":40,"prop4":1391159300719,"prop5":true,"prop6":["tPrZqJQxml"],"prop7":{"DXITdnJkDz":"QqKLlRNSQd"}},"beans":[{"prop1":"TiUfFBzpec","prop2":30,"prop3":57,"prop4":1391159300719,"prop5":true,"prop6":["VRvfIDvqLb"],"prop7":{"WlfJTXeHPf":"gKxjxsLPke"}}],"mapofBeans":{"tygvEkxPJJ":{"prop1":"TziuNauqep","prop2":30,"prop3":39,"prop4":1391159300719,"prop5":true,"prop6":["SMWsDefXEv"],"prop7":{"xNUmOnqQig":"MmtnagDQhJ"}}}}]]></content>
+    <headers>
+      <entry>
+        <string>Content-Type</string>
+        <string>application/json</string>
+      </entry>
+    </headers>
+    <workflowContextParameterMap>
+    	<entry>
+	        <string>beanId</string>
+	        <string>id</string>
+      </entry>
+    </workflowContextParameterMap>
+    <expectedNodes>
+    	<string>id,bean11</string>
+    </expectedNodes>
+    <soapParameterValues/>
+    
+  </TestCase>
+  <TestCase numberOfExecutions="5" url="api/rest/example/$beanId?token={token}&amp;" name="com.sample.services.ExampleBeanServiceImpl.getBean" method="GET" expectedResCode="200" expectedResContentType="application/json" skipTest="false" detailedLog="false" secure="true" soapBase="false">
+    <description>com.sample.services.ExampleBeanServiceImpl.getBean</description>
+    <content><![CDATA[]]></content>
+    <headers/>
+    <expectedNodes>
+    	<string>id</string>
+    	<string>bean.prop1</string>
+    	<string>id,$beanId</string>
+    </expectedNodes>
+    <soapParameterValues/>
+    
+  </TestCase>
+  <TestCase url="api/rest/example/?token={token}&amp;" name="com.sample.services.ExampleBeanServiceImpl.getBeans" method="GET" expectedResCode="200" expectedResContentType="application/json" skipTest="false" detailedLog="false" secure="true" soapBase="false">
+    <description>com.sample.services.ExampleBeanServiceImpl.getBeans</description>
+    <content><![CDATA[]]></content>
+    <headers/>
+    <expectedNodes>
+    	<string>[0].id</string>
+    	<string>[0].bean.prop1,bean21</string>
+    </expectedNodes>
+    <soapParameterValues/>
+    
+  </TestCase>
+  <TestCase url="api/rest/example/$beanId/?token={token}&amp;" name="com.sample.services.ExampleBeanServiceImpl.updateBean" method="PUT" expectedResCode="200" expectedResContentType="application/json" skipTest="false" detailedLog="false" secure="true" soapBase="false">
+    <description>com.sample.services.ExampleBeanServiceImpl.updateBean</description>
+    <content><![CDATA[{"id":"$beanId","name":"pZfWdQNenF","order":109,"valid":true,"bean":{"prop1":"UFHMxbJiCb","prop2":99,"prop3":114,"prop4":1391159300865,"prop5":false,"prop6":["DuyOPOLRZy"],"prop7":{"cODCdcyQwN":"ZWopaWsbFy"}},"beans":[{"prop1":"LXCKwpJdBc","prop2":100,"prop3":36,"prop4":1391159300865,"prop5":false,"prop6":["HgyLbCUSpl"],"prop7":{"tfCiZpavby":"UQCwseeylN"}}],"mapofBeans":{"JosIZfJAbF":{"prop1":"iKQPQhrDpd","prop2":92,"prop3":109,"prop4":1391159300865,"prop5":true,"prop6":["SjiKfdBfkd"],"prop7":{"GgjiWfdvzu":"wgSdszSEeR"}}}}]]></content>
+    <headers>
+      <entry>
+        <string>Content-Type</string>
+        <string>application/json</string>
+      </entry>
+    </headers>
+    <workflowContextParameterMap>
+    	<entry>
+	        <string>beanId</string>
+	        <string>id</string>
+      </entry>
+    </workflowContextParameterMap>
+    <expectedNodes>
+    	<string>id</string>
+    	<string>bean.prop1,WmGSHlwUYz</string>
+    	<string>id,$beanId</string>
+    </expectedNodes>
+    <soapParameterValues/>
+    
+  </TestCase>
+  <TestCase url="api/rest/example/$beanId/?token={token}&amp;" name="com.sample.services.ExampleBeanServiceImpl.getBean" method="GET" expectedResCode="200" expectedResContentType="application/json" skipTest="false" detailedLog="false" secure="true" soapBase="false">
+    <description>com.sample.services.ExampleBeanServiceImpl.getBean</description>
+    <content><![CDATA[]]></content>
+    <headers/>
+    <expectedNodes>
+    	<string>id</string>
+    	<string>bean.prop1,WmGSHlwUYz</string>
+    	<string>id,${beanId}</string>
+    </expectedNodes>
+    <soapParameterValues/>
+    
+  </TestCase-->
+  
+  <!-- <TestCase method="GET" expectedResCode="200" expectedResContentType="application/xml" skipTest="false" detailedLog="true" secure="true" soapBase="false">
+    <url><![CDATA[api/rest/example/?token={token}&_type=xml&t1u=$_DPA_.n('test1-provider').w(0).pv('u')&t2p=$_DPA_.n('test2-provider').w('number(0,1)').pv('p')]]></url>
+	<name>getBeansXMLSpecial</name>
+	<description>getBeansXMLSpecial</description>
+    <content><![CDATA[]]></content>
+    <headers/>
+    <expectedNodes>
+    	<string>ExampleBeans.ExampleBean.id3</string>
+    	<string>ExampleBeans.ExampleBean[1].id</string>
+    </expectedNodes>
+  </TestCase> -->
+  
+  <!-- TestCase method="GET" expectedResCode="200" expectedResContentType="application/xml" skipTest="false" detailedLog="true" secure="true" soapBase="false">
+    <url>api/rest/example/?token={token}&amp;_type=xml</url>
+	<name>getBeansXML</name>
+	<description>getBeansXML</description>
+    <content><![CDATA[]]></content>
+    <headers/>
+    <executeOnCondition>$role == 'ROLE_USER1'</executeOnCondition>
+    <expectedNodes>
+    	<string>ExampleBeans.ExampleBean.id</string>
+    	<string>ExampleBeans.ExampleBean[1].id</string>
+    </expectedNodes>
+    <workflowContextParameterMap>
+    	<entry>
+    		<string>AllXMLBeans</string>
+    		<string>#responseMappedValue[ExampleBeans.ExampleBean id]</string>
+    	</entry>
+    	<entry>
+    		<string>AllXMLBeansall</string>
+    		<string>#responseMappedValue[ExampleBeans.ExampleBean *]</string>
+    	</entry>
+    </workflowContextParameterMap>
+    <soapParameterValues/>
+    
+  </TestCase>
+  <TestCase method="GET" expectedResCode="200" expectedResContentType="application/xml" skipTest="false" detailedLog="false" secure="true" soapBase="false">
+    <url>api/rest/example/$id/?token={token}&amp;_type=xml</url>
+	<name>getBeansXML1</name>
+	<description>getBeanXML1</description>
+    <content><![CDATA[]]></content>
+    <executeOnCondition>$role == 'ROLE_USER1'</executeOnCondition>
+    <headers/>
+    <expectedNodes>
+    	<string>ExampleBean.id,${id}</string>
+    </expectedNodes>
+    <repeatScenarioProviderName>AllXMLBeansall</repeatScenarioProviderName>
+  </TestCase>
+  <TestCase method="GET" expectedResCode="200" expectedResContentType="application/xml" skipTest="false" detailedLog="false" secure="true" soapBase="false">
+    <url>api/rest/example/$id/?token={token}&amp;_type=xml</url>
+	<name>getBeansXML2</name>
+	<description>getBeanXML2</description>
+    <content><![CDATA[]]></content>
+    <executeOnCondition>$role == 'ROLE_USER1'</executeOnCondition>
+    <headers/>
+    <expectedNodes>
+    	<string>ExampleBean.id,${id}</string>
+    </expectedNodes>
+    <repeatScenarioProviderName>AllXMLBeans</repeatScenarioProviderName>
+  </TestCase>
+  
+  <TestCase method="GET" expectedResCode="200" expectedResContentType="application/json" skipTest="false" detailedLog="false" secure="true" soapBase="false">
+    <url>api/rest/example/$id/?token={token}&amp;</url>
+	<name>getBeansJSON1</name>
+	<description>getBeanJSON1</description>
+    <content><![CDATA[]]></content>
+    <headers/>
+    <expectedNodes>
+    	<string>id,${id}</string>
+    </expectedNodes>
+    <logicalValidations>
+    	<string>$id &amp;&amp; $role == 'ROLE_USER'</string>
+    </logicalValidations>
+    <repeatScenarioProviderName>AllJSONBeansall</repeatScenarioProviderName>
+  </TestCase>
+  <TestCase method="GET" expectedResCode="200" expectedResContentType="application/json" skipTest="false" detailedLog="false" secure="true" soapBase="false">
+    <url>api/rest/example/$id/?token={token}&amp;</url>
+	<name>getBeansJSON2</name>
+	<description>getBeanJSON2</description>
+    <content><![CDATA[]]></content>
+    <headers/>
+    <expectedNodes>
+    	<string>id,${id}</string>
+    </expectedNodes>
+    <repeatScenarioProviderName>AllJSONBeans</repeatScenarioProviderName>
+  </TestCase>
+  <TestCase method="POST" expectedResCode="200" expectedResContentType="application/xml" 
+  	skipTest="false" detailedLog="true" secure="true" soapBase="true">
+    <name>getBeansSOAP</name>
+	<description>getBeansSOAP</description>
+	<wsdlKey>ExampleService</wsdlKey>
+	<operationName>getBeans</operationName>
+    <content><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.sample.com/">
+		   <soapenv:Header/>
+		   <soapenv:Body>
+		      <ser:getBeans>
+		         <arg0>$token</arg0>
+		      </ser:getBeans>
+		   </soapenv:Body>
+		</soapenv:Envelope>
+    ]]></content>
+    <headers>
+      <entry>
+        <string>Content-Type</string>
+        <string>application/soap+xml</string>
+      </entry>
+    </headers>
+    <expectedNodes>
+    	<string>id</string>
+    </expectedNodes>
+    <workflowContextParameterMap>
+    	<entry>
+    		<string>AllSOAPBeans</string>
+    		<string>#responseMappedValue[ id]</string>
+    	</entry>
+    	<entry>
+    		<string>AllSOAPBeansall</string>
+    		<string>#responseMappedValue[ *]</string>
+    	</entry>
+    </workflowContextParameterMap>
+    <soapParameterValues/>
+    
+  </TestCase>
+  <TestCase method="POST" expectedResCode="200" expectedResContentType="application/xml" 
+  	skipTest="false" detailedLog="false" secure="true" soapBase="true">
+    <name>getBeansSOAP1</name>
+	<description>getBeanSOAP1</description>
+	<wsdlKey>ExampleService</wsdlKey>
+	<operationName>getBean</operationName>
+    <content><![CDATA[
+    	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.sample.com/">
+		   <soapenv:Header/>
+		   <soapenv:Body>
+		      <ser:getBean>
+		         <arg0>$token</arg0>
+		         <arg1>$id</arg1>
+		      </ser:getBean>
+		   </soapenv:Body>
+		</soapenv:Envelope>
+    ]]></content>
+    <headers/>
+    <expectedNodes>
+    	<string>id,${id}</string>
+    </expectedNodes>
+    <repeatScenarioProviderName>AllSOAPBeansall</repeatScenarioProviderName>
+  </TestCase>
+  <TestCase method="POST" expectedResCode="200" expectedResContentType="application/xml" 
+  	skipTest="false" detailedLog="false" secure="true" soapBase="true">
+    <name>getBeansSOAP2</name>
+	<description>getBeanSOAP2</description>
+	<wsdlKey>ExampleService</wsdlKey>
+	<operationName>getBean</operationName>
+    <content><![CDATA[
+    	<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.sample.com/">
+		   <soapenv:Header/>
+		   <soapenv:Body>
+		      <ser:getBean>
+		         <arg0>$token</arg0>
+		         <arg1>$id</arg1>
+		      </ser:getBean>
+		   </soapenv:Body>
+		</soapenv:Envelope>
+    ]]></content>
+    <headers/>
+    <expectedNodes>
+    	<string>id,${id}</string>
+    </expectedNodes>
+    <repeatScenarioProviderName>AllSOAPBeans</repeatScenarioProviderName>
+  </TestCase-->
+</TestCases>

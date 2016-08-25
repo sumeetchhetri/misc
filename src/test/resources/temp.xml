@@ -1,0 +1,46 @@
+<TestCases>
+  <TestCase url="api/rest/auth/loginh?_type=xml" name="com.sample.services.AuthenticationServiceImpl.loginHeaderParams" method="POST" expectedResCode="200" expectedResContentType="application/xml" skipTest="false" detailedLog="false" secure="false" soapBase="false">
+    <description>com.sample.services.AuthenticationServiceImpl.loginHeaderParams</description>
+    <content><![CDATA[]]></content>
+    <headers>
+      <entry>
+        <string>username</string>
+        <string>user1</string>
+      </entry>
+      <entry>
+        <string>Content-Type</string>
+        <string>text/plain</string>
+      </entry>
+      <entry>
+        <string>password</string>
+        <string>password</string>
+      </entry>
+    </headers>
+    <expectedNodes>
+    	<string>User.token</string>
+    </expectedNodes>
+    <soapParameterValues/>
+    <filesToUpload/>
+  </TestCase>
+  <TestCase url="api/rest/example/?token={token}&amp;_type=xml" name="getBeansXML" method="GET" expectedResCode="200" expectedResContentType="application/xml" skipTest="false" detailedLog="true" secure="true" soapBase="false">
+    <description>getBeansXML</description>
+    <content><![CDATA[]]></content>
+    <headers/>
+    <expectedNodes>
+    	<string>ExampleBeans.ExampleBean.id</string>
+    	<string>ExampleBeans.ExampleBean[1].id</string>
+    </expectedNodes>
+    <workflowContextParameterMap>
+    	<entry>
+    		<string>AllXMLBeans</string>
+    		<string>#responseMappedValue[ExampleBeans.ExampleBean id]</string>
+    	</entry>
+    	<entry>
+    		<string>AllXMLBeansall</string>
+    		<string>#responseMappedValue[ExampleBeans.ExampleBean *]</string>
+    	</entry>
+    </workflowContextParameterMap>
+    <soapParameterValues/>
+    <filesToUpload/>
+  </TestCase>
+</TestCases>

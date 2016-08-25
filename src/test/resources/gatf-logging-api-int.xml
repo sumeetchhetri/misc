@@ -1,0 +1,35 @@
+<TestCases>
+  <TestCase method="POST" exQueryPart="" expectedResCode="200" skipTest="false" detailedLog="false" secure="false" soapBase="false" sequence="0" numberOfExecutions="1" repeatScenariosConcurrentExecution="false" stopOnFirstFailureForPerfTest="false" reportResponseContent="false" abortOnInvalidStatusCode="false" abortOnInvalidContentType="false">
+    <baseUrl>http://localhost:8081/sampleApp</baseUrl>
+    <url>api/rest/auth/loginh</url>
+    <name>authapi</name>
+    <description></description>
+    <headers>
+      <entry>
+        <string>username</string>
+        <string>user1</string>
+      </entry>
+      <entry>
+        <string>password</string>
+        <string>password</string>
+      </entry>
+    </headers>
+    <expectedNodes/>
+    <soapParameterValues/>
+    <workflowContextParameterMap/>
+    <multipartContent/>
+    <repeatScenarios/>
+  </TestCase>
+  <TestCase method="GET" exQueryPart="" expectedResCode="200" skipTest="false" detailedLog="false" secure="false" soapBase="false" sequence="0" numberOfExecutions="1" repeatScenariosConcurrentExecution="false" stopOnFirstFailureForPerfTest="false" reportResponseContent="false" abortOnInvalidStatusCode="false" abortOnInvalidContentType="false">
+    <baseUrl>http://localhost:8081/sampleApp</baseUrl>
+    <url>api/rest/log</url>
+    <name>targetapi</name>
+    <description></description>
+    <headers/>
+    <expectedNodes/>
+    <soapParameterValues/>
+    <workflowContextParameterMap/>
+    <multipartContent/>
+    <repeatScenarios/>
+  </TestCase>
+</TestCases>

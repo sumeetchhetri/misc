@@ -1,0 +1,49 @@
+<TestCases>
+  <TestCase method="POST" exQueryPart="" expectedResCode="200" skipTest="false" detailedLog="false" secure="false" soapBase="false" sequence="0" numberOfExecutions="1" repeatScenariosConcurrentExecution="false" stopOnFirstFailureForPerfTest="false" reportResponseContent="true" abortOnInvalidStatusCode="false" abortOnInvalidContentType="false" disablePreHooks="false" disablePostHooks="false">
+    <baseUrl>http://localhost:8081/sampleApp</baseUrl>
+    <url>api/rest/auth/loginh</url>
+    <name>authapi</name>
+    <description></description>
+    <headers>
+      <entry>
+        <string>username</string>
+        <string>user2</string>
+      </entry>
+      <entry>
+        <string>password</string>
+        <string>password</string>
+      </entry>
+    </headers>
+    <expectedNodes/>
+    <soapParameterValues/>
+    <workflowContextParameterMap class="linked-hash-map">
+      <entry>
+        <string>token</string>
+        <string>token</string>
+      </entry>
+    </workflowContextParameterMap>
+    <multipartContent/>
+    <repeatScenarios/>
+  </TestCase>
+  <TestCase method="POST" exQueryPart="" expectedResCode="200" skipTest="false" detailedLog="false" secure="false" soapBase="false" sequence="0" numberOfExecutions="1" repeatScenariosConcurrentExecution="false" stopOnFirstFailureForPerfTest="false" reportResponseContent="true" abortOnInvalidStatusCode="false" abortOnInvalidContentType="false" disablePreHooks="false" disablePostHooks="false">
+    <baseUrl>http://localhost:8081/sampleApp</baseUrl>
+    <url>api/rest/example?token=${token}</url>
+    <name>targetapi</name>
+    <description></description>
+    <content><![CDATA[{
+    "id": "Ticket",
+    "name": "Test"
+}]]></content>
+    <headers>
+      <entry>
+        <string>Content-Type</string>
+        <string>application/json</string>
+      </entry>
+    </headers>
+    <expectedNodes/>
+    <soapParameterValues/>
+    <workflowContextParameterMap/>
+    <multipartContent/>
+    <repeatScenarios/>
+  </TestCase>
+</TestCases>
