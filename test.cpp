@@ -27,7 +27,7 @@ int main()
 {
     std::string a;
     auto start = high_resolution_clock::now();
-    for(int i=0;i<100000;i++) {
+    for(int i=0;i<10000000;i++) {
         numToStr(i+100, &a);
     }
     auto stop = high_resolution_clock::now();
@@ -37,7 +37,7 @@ int main()
     
     std::string b;
     start = high_resolution_clock::now();
-    for(int i=0;i<100000;i++) {
+    for(int i=0;i<10000000;i++) {
         b.append(to_string(i+100));
     }
     stop = high_resolution_clock::now();
@@ -47,7 +47,7 @@ int main()
 
     fcpstream f;
     start = high_resolution_clock::now();
-    for(int i=0;i<100000;i++) {
+    for(int i=0;i<10000000;i++) {
         f << (i+100);
     }
     stop = high_resolution_clock::now();
